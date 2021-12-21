@@ -1,0 +1,29 @@
+{
+  "name": "ez-chatserver",
+  "version": "1.0.0",
+  "description": "## Problem Domain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EZ-Chat/ez-chatServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EZ-Chat/ez-chatServer/issues"
+  },
+  "homepage": "https://github.com/EZ-Chat/ez-chatServer#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "base-64": "^1.0.0",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "socket.io": "^4.3.2",
+    "socket.io-client": "^4.3.2"
+  }
+}
