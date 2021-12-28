@@ -3,10 +3,10 @@
 const socketio = require('socket.io');
 const PORT = process.env.PORT || 3030;
 const server = socketio(PORT);
-const ezchat = server.of('/ezchat');
+const ezchat = server.of('/securechat');
 
 ezchat.on('connection', (socket) => {
-  console.log(`${socket.id} connected to ezchat server`);
+  console.log(`${socket.id} connected to secure chat server`);
 
   socket.on('join', (payload) => {
     for (const room of payload.rooms) {
@@ -17,11 +17,13 @@ ezchat.on('connection', (socket) => {
   });
 
   socket.on('send', (payload) => {
-    const messageTime = Date.now();
-    ezchat.to(payload.room).emit('message', {...payload, messageTime});
+    console.log('Event: send, payload: ', payload);
+    if (!('messageTime' in payload)) payload['messageTime'] = Date.now();
+    ezchat.to(payload.room).emit('message', payload);
   });
 
   socket.on('received', (payload) => {
+    console.log('Event: received, payload: ', payload);
     ezchat.to(payload.room).emit('received', payload);
   })
 });
