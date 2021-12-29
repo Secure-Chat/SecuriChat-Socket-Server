@@ -1,7 +1,7 @@
 'use strict';
 
 const socketio = require('socket.io');
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT;
 const server = socketio(PORT);
 const ezchat = server.of('/securechat');
 
